@@ -36,7 +36,7 @@ public class Trabalho {
             System.out.println("0. Sair");
             System.out.print("Opção: ");
             int op = sc.nextInt();
-            sc.nextLine(); // limpar buffer
+            sc.nextLine(); 
 
             switch(op) {
                 case 1: menuUsuarios(sc, usuarios); break;
@@ -49,7 +49,6 @@ public class Trabalho {
         }
     }
 
-    // ====== MENU USUÁRIOS ======
     private static void menuUsuarios(Scanner sc, UsuarioController usuarios) {
         while(true) {
             System.out.println("\n--- Menu Usuários ---");
@@ -91,7 +90,6 @@ public class Trabalho {
         }
     }
 
-    // ====== MENU DISCIPLINAS ======
     private static void menuDisciplinas(Scanner sc, DisciplinaController disciplinas, UsuarioController usuarios) {
         while(true) {
             System.out.println("\n--- Menu Disciplinas ---");
@@ -145,7 +143,6 @@ public class Trabalho {
         }
     }
 
-    // ====== MENU TAREFAS ======
     private static void menuTarefas(Scanner sc, TarefaController tarefas,
                                     DisciplinaController disciplinas, UsuarioController usuarios) {
         while(true) {
@@ -213,7 +210,6 @@ public class Trabalho {
         }
     }
 
-    // ====== MENU NOTAS ======
     private static void menuNotas(Scanner sc, NotaController notas, TarefaController tarefas) {
         while(true) {
             System.out.println("\n--- Menu Notas ---");
@@ -259,4 +255,5 @@ public class Trabalho {
             }
         }
     }
+
 }

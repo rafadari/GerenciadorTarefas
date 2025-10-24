@@ -4,7 +4,7 @@ public class Usuario {
     private int idUsuario;
     private String nome;
     private String email;
-    private String tipo; // aluno ou professor
+    private String tipo; 
 
     public Usuario() {}
 
@@ -25,4 +25,5 @@ public class Usuario {
     public String getTipo() { return tipo; }
     public void setTipo(String tipo) { this.tipo = tipo; }
 }
+
 

@@ -11,10 +11,6 @@ import java.util.ArrayList;
 
 public class TarefaDAO {
 
-    /**
-     * Mapeia um registro (ResultSet) do banco de dados para um objeto Tarefa.
-     * Garante o uso de nomes de colunas em snake_case como no SQL.
-     */
     private Tarefa mapearTarefa(ResultSet rs) throws SQLException {
         Tarefa t = new Tarefa();
         t.setIdTarefa(rs.getInt("id_tarefa"));
@@ -29,12 +25,8 @@ public class TarefaDAO {
         return t;
     }
 
-    /**
-     * Retorna todas as tarefas registradas no banco de dados.
-     */
     public ArrayList<Tarefa> listar() {
         ArrayList<Tarefa> lista = new ArrayList<>();
-        // Tabela 'tarefas' e campos completos em snake_case
         String sql = "SELECT id_tarefa, titulo, descricao, prazo, status, id_disciplina, id_aluno FROM tarefas";
 
         try (Connection conexao = Conexao.getConnection();
@@ -50,9 +42,6 @@ public class TarefaDAO {
         return lista;
     }
 
-    /**
-     * Busca uma tarefa específica por seu ID (chave primária).
-     */
     public Tarefa buscarPorId(int id) {
         String sql = "SELECT id_tarefa, titulo, descricao, prazo, status, id_disciplina, id_aluno FROM tarefas WHERE id_tarefa = ?";
 
@@ -72,11 +61,7 @@ public class TarefaDAO {
         return null;
     }
 
-    /**
-     * Adiciona uma nova tarefa ao banco de dados.
-     */
     public Tarefa adicionar(Tarefa t) {
-        // Colunas e placeholders ajustados
         String sql = "INSERT INTO tarefas (titulo, descricao, prazo, status, id_disciplina, id_aluno) VALUES (?, ?, ?, ?, ?, ?)";
 
         try (Connection conexao = Conexao.getConnection();
@@ -103,11 +88,7 @@ public class TarefaDAO {
         return null;
     }
 
-    /**
-     * Atualiza os dados de uma tarefa existente no banco de dados.
-     */
     public boolean atualizar(Tarefa t) {
-        // Campos e colunas ajustados
         String sql = "UPDATE tarefas SET titulo = ?, descricao = ?, prazo = ?, status = ?, id_disciplina = ?, id_aluno = ? WHERE id_tarefa = ?";
 
         try (Connection conexao = Conexao.getConnection();
@@ -129,9 +110,6 @@ public class TarefaDAO {
         }
     }
 
-    /**
-     * Remove uma tarefa pelo ID.
-     */
     public boolean remover(int id) {
         String sql = "DELETE FROM tarefas WHERE id_tarefa = ?";
 
@@ -147,3 +125,4 @@ public class TarefaDAO {
         }
     }
 }
+

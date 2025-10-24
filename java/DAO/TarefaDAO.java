@@ -16,10 +16,8 @@ public class TarefaDAO {
         t.setIdTarefa(rs.getInt("id_tarefa"));
         t.setTitulo(rs.getString("titulo"));
         t.setDescricao(rs.getString("descricao"));
-        // Campos corrigidos de acordo com o SQL (VARCHAR)
         t.setPrazo(rs.getString("prazo"));
         t.setStatus(rs.getString("status"));
-        // Chaves Estrangeiras corrigidas
         t.setIdDisciplina(rs.getInt("id_disciplina"));
         t.setIdAluno(rs.getInt("id_aluno"));
         return t;
@@ -125,4 +123,5 @@ public class TarefaDAO {
         }
     }
 }
+
 
